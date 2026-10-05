@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pour Toi</title>
+    <title>Pour Toi ❤️</title>
     <style>
         body, html {
             margin: 0;
@@ -51,10 +51,11 @@
 
         .petit-stitch {
             position: absolute;
-            width: 80px;
+            width: 100px; /* Taille légèrement augmentée */
             opacity: 0;
             animation: apparaitreDisparaitre 3s forwards;
             pointer-events: none;
+            border-radius: 50%; /* Pour adoucir les bords de l'image */
         }
 
         @keyframes apparaitreDisparaitre {
@@ -74,8 +75,9 @@
         }
 
         #gros-stitch-container img {
-            width: 300px;
-            filter: drop-shadow(0 0 20px rgba(255, 102, 178, 0.5));
+            width: 350px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 102, 178, 0.3);
             transition: transform 0.3s;
         }
 
@@ -123,8 +125,8 @@
     </div>
 
     <div id="gros-stitch-container">
-        <!-- N'oublie pas de mettre le lien vers l'image de ton gros Stitch ici -->
-        <img src="LIEN_IMAGE_GROS_STITCH.png" alt="Stitch avec une enveloppe" id="img-enveloppe">
+        <!-- Appel de l'image locale -->
+        <img src="gros-stitch.jpg" alt="Alien avec une enveloppe" id="img-enveloppe">
     </div>
 
     <div id="lettre-container">
@@ -132,8 +134,8 @@
     </div>
 
     <script>
-        // N'oublie pas de mettre le lien vers l'image de tes petits Stitch ici
-        const URL_PETIT_STITCH = "LIEN_IMAGE_PETIT_STITCH.png"; 
+        // Appel de l'image locale pour les petits
+        const URL_PETIT_STITCH = "petit-stitch.jpg"; 
         
         const MESSAGE_LETTRE = `Mon amour,
 Je prends ces quelques instants pour t’écrire ce que j'ai au plus profond du cœur. Même si les choses s'apaisent doucement et qu'on retrouve petit à petit notre rythme, j'ai ce besoin de te redire à quel point tu es essentielle pour moi.
