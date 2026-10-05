@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Toi</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #accueil {
+            text-align: center;
+            z-index: 10;
+            transition: opacity 1s ease;
+        }
+
+        h1 {
+            color: #ff66b2;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            padding: 0 20px;
+            text-shadow: 0 0 10px rgba(255, 102, 178, 0.5);
+        }
+
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff3399;
+        }
+
+        .petit-stitch {
+            position: absolute;
+            width: 80px;
+            opacity: 0;
+            animation: apparaitreDisparaitre 3s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes apparaitreDisparaitre {
+            0% { opacity: 0; transform: scale(0.5) translateY(20px); }
+            20% { opacity: 1; transform: scale(1) translateY(0); }
+            80% { opacity: 1; transform: scale(1) translateY(0); }
+            100% { opacity: 0; transform: scale(0.5) translateY(-20px); }
+        }
+
+        #gros-stitch-container {
+            display: none;
+            position: absolute;
+            z-index: 20;
+            text-align: center;
+            cursor: pointer;
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        #gros-stitch-container img {
+            width: 300px;
+            filter: drop-shadow(0 0 20px rgba(255, 102, 178, 0.5));
+            transition: transform 0.3s;
+        }
+
+        #gros-stitch-container img:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        #lettre-container {
+            display: none;
+            position: absolute;
+            z-index: 30;
+            background-color: #fff9f9;
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 85%;
+            box-shadow: 0 0 30px rgba(255, 102, 178, 0.8);
+            color: #333;
+            animation: ouvrirLettre 0.8s ease forwards;
+        }
+
+        @keyframes ouvrirLettre {
+            0% { transform: translateY(50px) scale(0.8); opacity: 0; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        #texte-lettre {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="accueil">
+        <h1>Parfois je suis maladroit, mais toujours je suis amoureux</h1>
+        <button id="btn-commencer">Clique ici ❤️</button>
+    </div>
+
+    <div id="gros-stitch-container">
+        <!-- N'oublie pas de mettre le lien vers l'image de ton gros Stitch ici -->
+        <img src="LIEN_IMAGE_GROS_STITCH.png" alt="Stitch avec une enveloppe" id="img-enveloppe">
+    </div>
+
+    <div id="lettre-container">
+        <div id="texte-lettre"></div>
+    </div>
+
+    <script>
+        // N'oublie pas de mettre le lien vers l'image de tes petits Stitch ici
+        const URL_PETIT_STITCH = "LIEN_IMAGE_PETIT_STITCH.png"; 
+        
+        const MESSAGE_LETTRE = `Mon amour,
+Je prends ces quelques instants pour t’écrire ce que j'ai au plus profond du cœur. Même si les choses s'apaisent doucement et qu'on retrouve petit à petit notre rythme, j'ai ce besoin de te redire à quel point tu es essentielle pour moi.
+Je n'ai pas envie de repenser à ce qui a pu nous secouer, ce qui m'importe aujourd'hui, c'est uniquement là où on va. Regarder devant, ensemble. Te voir sourire, retrouver cette complicité unique qu'on a tous les deux et construire au quotidien tout ce qu'on mérite de vivre. Tu occupes toute ma tête et tout mon espace, et l'envie que j'ai de toi, de tes bras, de nos moments à deux, est plus forte que jamais. Pas une seconde ne passe sans que tu me manques et sans que je te veuilles à mes cotés pour tout partager.
+Je veux que tu n'aies jamais le moindre doute là-dessus, je suis là, près de toi, et je ne t'abandonnerai jamais. Quels que soient les obstacles, les doutes ou les étapes qu'on aura à franchir, c'est ta main que je veux. 
+Tu es ma priorité, ma partenaire, et la personne avec qui je veux tout partager.
+Prenons le temps d'avancer à notre rythme, de savourer chaque instant qui revient, mais sache que mon engagement et mon amour pour toi sont inébranlables. Je t'aime profondément et du fond du coeur.
+
+Ton homme`;
+
+        const accueil = document.getElementById('accueil');
+        const btnCommencer = document.getElementById('btn-commencer');
+        const grosStitchContainer = document.getElementById('gros-stitch-container');
+        const imgEnveloppe = document.getElementById('img-enveloppe');
+        const lettreContainer = document.getElementById('lettre-container');
+        const texteLettre = document.getElementById('texte-lettre');
+
+        let intervalStitch;
+
+        btnCommencer.addEventListener('click', () => {
+            accueil.style.opacity = '0';
+            setTimeout(() => {
+                accueil.style.display = 'none';
+            }, 1000);
+
+            intervalStitch = setInterval(creerPetitStitch, 300);
+
+            setTimeout(() => {
+                clearInterval(intervalStitch);
+                afficherGrosStitch();
+            }, 4000);
+        });
+
+        function creerPetitStitch() {
+            const stitch = document.createElement('img');
+            stitch.src = URL_PETIT_STITCH;
+            stitch.classList.add('petit-stitch');
+            
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 100);
+            
+            stitch.style.left = `${x}px`;
+            stitch.style.top = `${y}px`;
+            
+            document.body.appendChild(stitch);
+
+            setTimeout(() => {
+                stitch.remove();
+            }, 3000);
+        }
+
+        function afficherGrosStitch() {
+            grosStitchContainer.style.display = 'block';
+        }
+
+        imgEnveloppe.addEventListener('click', () => {
+            grosStitchContainer.style.display = 'none';
+            texteLettre.textContent = MESSAGE_LETTRE;
+            lettreContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
