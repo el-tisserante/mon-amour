@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Cette ligne magique empêche le blocage des images (hotlinking) -->
+    <meta name="referrer" content="no-referrer"> 
     <title>Pour Toi ❤️</title>
     <style>
         body, html {
@@ -51,7 +53,7 @@
 
         .petit-stitch {
             position: absolute;
-            width: 90px; 
+            width: 100px; 
             opacity: 0;
             animation: apparaitreDisparaitre 3s forwards;
             pointer-events: none;
@@ -123,77 +125,5 @@
     </div>
 
     <div id="gros-stitch-container">
-        <!-- Lien direct vers une image de Stitch sur internet -->
-        <img src="https://i.pinimg.com/originals/bd/ca/61/bdca61b4a3a60a927becc98b2580a653.png" alt="Stitch avec une enveloppe" id="img-enveloppe">
-    </div>
-
-    <div id="lettre-container">
-        <div id="texte-lettre"></div>
-    </div>
-
-    <script>
-        // Lien direct vers une image de petit Stitch sur internet
-        const URL_PETIT_STITCH = "https://i.pinimg.com/originals/f3/d9/de/f3d9de83196a661601053cbfd5218ff6.png"; 
-        
-        const MESSAGE_LETTRE = `Mon amour,
-Je prends ces quelques instants pour t’écrire ce que j'ai au plus profond du cœur. Même si les choses s'apaisent doucement et qu'on retrouve petit à petit notre rythme, j'ai ce besoin de te redire à quel point tu es essentielle pour moi.
-Je n'ai pas envie de repenser à ce qui a pu nous secouer, ce qui m'importe aujourd'hui, c'est uniquement là où on va. Regarder devant, ensemble. Te voir sourire, retrouver cette complicité unique qu'on a tous les deux et construire au quotidien tout ce qu'on mérite de vivre. Tu occupes toute ma tête et tout mon espace, et l'envie que j'ai de toi, de tes bras, de nos moments à deux, est plus forte que jamais. Pas une seconde ne passe sans que tu me manques et sans que je te veuilles à mes cotés pour tout partager.
-Je veux que tu n'aies jamais le moindre doute là-dessus, je suis là, près de toi, et je ne t'abandonnerai jamais. Quels que soient les obstacles, les doutes ou les étapes qu'on aura à franchir, c'est ta main que je veux. 
-Tu es ma priorité, ma partenaire, et la personne avec qui je veux tout partager.
-Prenons le temps d'avancer à notre rythme, de savourer chaque instant qui revient, mais sache que mon engagement et mon amour pour toi sont inébranlables. Je t'aime profondément et du fond du coeur.
-
-Ton homme`;
-
-        const accueil = document.getElementById('accueil');
-        const btnCommencer = document.getElementById('btn-commencer');
-        const grosStitchContainer = document.getElementById('gros-stitch-container');
-        const imgEnveloppe = document.getElementById('img-enveloppe');
-        const lettreContainer = document.getElementById('lettre-container');
-        const texteLettre = document.getElementById('texte-lettre');
-
-        let intervalStitch;
-
-        btnCommencer.addEventListener('click', () => {
-            accueil.style.opacity = '0';
-            setTimeout(() => {
-                accueil.style.display = 'none';
-            }, 1000);
-
-            intervalStitch = setInterval(creerPetitStitch, 300);
-
-            setTimeout(() => {
-                clearInterval(intervalStitch);
-                afficherGrosStitch();
-            }, 4000);
-        });
-
-        function creerPetitStitch() {
-            const stitch = document.createElement('img');
-            stitch.src = URL_PETIT_STITCH;
-            stitch.classList.add('petit-stitch');
-            
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 100);
-            
-            stitch.style.left = `${x}px`;
-            stitch.style.top = `${y}px`;
-            
-            document.body.appendChild(stitch);
-
-            setTimeout(() => {
-                stitch.remove();
-            }, 3000);
-        }
-
-        function afficherGrosStitch() {
-            grosStitchContainer.style.display = 'block';
-        }
-
-        imgEnveloppe.addEventListener('click', () => {
-            grosStitchContainer.style.display = 'none';
-            texteLettre.textContent = MESSAGE_LETTRE;
-            lettreContainer.style.display = 'block';
-        });
-    </script>
-</body>
-</html>
+        <!-- Lien fiable Wikipédia -->
+        <img src="
