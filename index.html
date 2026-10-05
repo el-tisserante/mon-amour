@@ -51,11 +51,10 @@
 
         .petit-stitch {
             position: absolute;
-            width: 100px; /* Taille légèrement augmentée */
+            width: 90px; 
             opacity: 0;
             animation: apparaitreDisparaitre 3s forwards;
             pointer-events: none;
-            border-radius: 50%; /* Pour adoucir les bords de l'image */
         }
 
         @keyframes apparaitreDisparaitre {
@@ -76,9 +75,8 @@
 
         #gros-stitch-container img {
             width: 350px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 102, 178, 0.3);
             transition: transform 0.3s;
+            filter: drop-shadow(0 0 15px rgba(255, 102, 178, 0.4));
         }
 
         #gros-stitch-container img:hover {
@@ -125,8 +123,8 @@
     </div>
 
     <div id="gros-stitch-container">
-        <!-- Appel de l'image locale -->
-        <img src="gros-stitch.jpg" alt="Alien avec une enveloppe" id="img-enveloppe">
+        <!-- Lien direct vers une image de Stitch sur internet -->
+        <img src="https://i.pinimg.com/originals/bd/ca/61/bdca61b4a3a60a927becc98b2580a653.png" alt="Stitch avec une enveloppe" id="img-enveloppe">
     </div>
 
     <div id="lettre-container">
@@ -134,8 +132,8 @@
     </div>
 
     <script>
-        // Appel de l'image locale pour les petits
-        const URL_PETIT_STITCH = "petit-stitch.jpg"; 
+        // Lien direct vers une image de petit Stitch sur internet
+        const URL_PETIT_STITCH = "https://i.pinimg.com/originals/f3/d9/de/f3d9de83196a661601053cbfd5218ff6.png"; 
         
         const MESSAGE_LETTRE = `Mon amour,
 Je prends ces quelques instants pour t’écrire ce que j'ai au plus profond du cœur. Même si les choses s'apaisent doucement et qu'on retrouve petit à petit notre rythme, j'ai ce besoin de te redire à quel point tu es essentielle pour moi.
